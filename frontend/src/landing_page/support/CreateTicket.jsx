@@ -30,7 +30,7 @@ export default function CreateTicket() {
           </a>
           <br />
           <a href="" className="support-link">
-            Zerodha IDFC FIRST Bank 3-in-1 Account
+            TradeFlow IDFC FIRST Bank 3-in-1 Account
           </a>
           <br />
           <a href="" className="support-link">

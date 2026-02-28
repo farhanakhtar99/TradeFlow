@@ -19,7 +19,7 @@ export default function ProductPage() {
       <RightSection
         imageURL="media\images\Console.png"
         productName="Console"
-        productDescription="The central dashboard for your Zerodha account. Gain insights into your trades and investments with in-depth reports and visualisations."
+        productDescription="The central dashboard for your TradeFlow account. Gain insights into your trades and investments with in-depth reports and visualisations."
         learnMore=""
       />
       <LeftSection
@@ -49,7 +49,7 @@ export default function ProductPage() {
       <h5 className="text-muted text-center mb-5">
         Want to know more about our technology stack? Check out the{" "}
         <a href="" style={{ textDecoration: "none" }}>
-          Zerodha.tech
+          TradeFlow.tech
         </a>{" "}
         blog.
       </h5>

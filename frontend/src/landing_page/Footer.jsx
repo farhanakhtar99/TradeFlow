@@ -13,24 +13,24 @@ export default function Footer() {
               style={{ width: "60%" }}
             />
             <p>
-              &copy; 2010 - 2025, Zerodha Broking Ltd. <br />
+              &copy; 2010 - 2026, Trade Flow Broking Ltd. <br />
               All rights reserved.
             </p>
             <div className="social-icon">
-              <span>
-                <i class="fa-brands fa-twitter icons"></i>
-              </span>
-              <span>
-                <i class="fa-brands fa-facebook icons"></i>
-              </span>
-              <span>
-                <i class="fa-brands fa-square-instagram icons"></i>
+              <span className="icon">
+                <i class="fa-brands fa-github"></i>
               </span>
               <span>
                 <i class="fa-brands fa-linkedin icons"></i>
               </span>
               <span>
-                <i class="fa-brands fa-telegram icons"></i>
+                <i class="fa-brands fa-square-instagram icons"></i>
+              </span>
+              <span>
+                <i class="fa-brands fa-twitter icons"></i>
+              </span>
+              <span>
+                <i class="fa-brands fa-facebook icons"></i>
               </span>
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function Footer() {
             </p>
             <p>
               <a href="" className="footer-link">
-                Zerodha.tech
+                TradeFlow.tech
               </a>
             </p>
             <p>
@@ -74,7 +74,7 @@ export default function Footer() {
             </p>
             <p>
               <a href="" className="footer-link">
-                Zerodha cares (CSR)
+                TradeFlow cares (CSR)
               </a>
             </p>
           </div>
@@ -131,15 +131,16 @@ export default function Footer() {
         </div>
         <div className="mt-5 text-muted" style={{ fontSize: "14px" }}>
           <p>
-            Zerodha Broking Ltd.: Member of NSE, BSE​ &​ MCX – SEBI Registration
-            no.: INZ000031633 CDSL/NSDL: Depository services through Zerodha
-            Broking Ltd. – SEBI Registration no.: IN-DP-431-2019 Registered
-            Address: Zerodha Broking Ltd., #153/154, 4th Cross, Dollars Colony,
-            Opp. Clarence Public School, J.P Nagar 4th Phase, Bengaluru -
-            560078, Karnataka, India. For any complaints pertaining to
-            securities broking please write to complaints@zerodha.com, for DP
-            related to dp@zerodha.com. Please ensure you carefully read the Risk
-            Disclosure Document as prescribed by SEBI | ICF
+            TradeFlow Broking Ltd.: Member of NSE, BSE​ &​ MCX – SEBI
+            Registration no.: INZ000031633 CDSL/NSDL: Depository services
+            through TradeFlow Broking Ltd. – SEBI Registration no.:
+            IN-DP-431-2019 Registered Address: TradeFlow Broking Ltd., #153/154,
+            4th Cross, Dollars Colony, Opp. Clarence Public School, J.P Nagar
+            4th Phase, Bengaluru - 560078, Karnataka, India. For any complaints
+            pertaining to securities broking please write to
+            complaints@zerodha.com, for DP related to dp@tradeflow.com. Please
+            ensure you carefully read the Risk Disclosure Document as prescribed
+            by SEBI | ICF
           </p>
 
           <p>

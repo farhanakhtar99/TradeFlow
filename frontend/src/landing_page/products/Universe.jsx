@@ -5,7 +5,7 @@ export default function Universe() {
   return (
     <div className="container mt-5 p-5">
       <div className="row text-center">
-        <h3 className="mt-4">The Zerodha Universe</h3>
+        <h3 className="mt-4">The TradeFlow Universe</h3>
         <p className="text-small text-muted mt-3">
           Extend your trading and investment experience even further with our
           partner platforms

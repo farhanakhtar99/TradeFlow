@@ -8,12 +8,16 @@ export default function Team() {
         <h1 className="text-center p-4">People</h1>
         <div className="col-6 text-center p-2 mb-3">
           <img
-            src="media\images\nithinKamath.jpg"
+            src="media\images\owner.jpg"
             alt="Image"
-            style={{ borderRadius: "100%", width: "55%" }}
+            style={{
+              borderRadius: "90%",
+              width: "55%",
+              border: "3px solid black",
+            }}
           />
-          <h4 className="mt-4">Nithin Kamath</h4>
-          <h6 className="text-muted">Founder, CEO</h6>
+          <h4 className="mt-4">Farhan Akhtar</h4>
+          <h6 className="text-muted">Founder, Student</h6>
         </div>
 
         <div
@@ -21,9 +25,9 @@ export default function Team() {
           style={{ lineHeight: "1.8", fontSize: "1.1rem" }}
         >
           <p>
-            Nithin bootstrapped and founded Zerodha in 2010 to overcome the
+            Farhan bootstrapped and founded TradeFlow in 2010 to overcome the
             hurdles he faced during his decade long stint as a trader. Today,
-            Zerodha has changed the landscape of the Indian broking industry.
+            TradeFlow has changed the landscape of the Indian broking industry.
           </p>
 
           <p>
