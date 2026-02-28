@@ -338,7 +338,18 @@ app.post("/signup", async (req, res) => {
       return res.json({ success: true, user: registeredUser });
     });
   } catch (err) {
-    res.status(500).json({ success: false, err: err.message });
+    // 👇 user already exists
+    if (err.name === "UserExistsError") {
+      return res.status(400).json({
+        success: false,
+        message: "User already exists",
+      });
+    }
+
+    return res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+    });
   }
 });
 
