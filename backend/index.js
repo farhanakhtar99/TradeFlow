@@ -8,6 +8,7 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+const wrapAsync = require("./utils/wrapAsync");
 
 const Holding = require("./model/holding");
 const Position = require("./model/position");
@@ -67,8 +68,9 @@ app.get("/allPositions", async (req, res) => {
   res.json(allPositions);
 });
 
-app.post("/buyOrder", async (req, res) => {
-  try {
+app.post(
+  "/buyOrder",
+  wrapAsync(async (req, res, next) => {
     const userId = req.user._id;
     const user = await User.findById(userId).populate("orders");
 
@@ -95,13 +97,12 @@ app.post("/buyOrder", async (req, res) => {
     await user.save();
 
     res.json({ status: "BUY_CREATED", order: newOrder });
-  } catch (err) {
-    res.status(500).json({ message: "Server Error" });
-  }
-});
+  }),
+);
 
-app.post("/sellOrder", async (req, res) => {
-  try {
+app.post(
+  "/sellOrder",
+  wrapAsync(async (req, res, next) => {
     const userId = req.user._id;
     const user = await User.findById(userId).populate("orders");
 
@@ -134,196 +135,23 @@ app.post("/sellOrder", async (req, res) => {
     await existingOrder.save();
 
     res.json({ status: "SELL_UPDATED", order: existingOrder });
-  } catch (err) {
-    res.status(500).json({ message: "Server Error" });
-  }
-});
+  }),
+);
 
-// app.post("/newOrder", async (req, res) => {
-//   let id = req.user._id;
-//   let user = await User.findById(id);
-//   let { name, qty, price, mode } = req.body;
-//   let newOrder = new Order({
-//     name: name,
-//     qty: qty,
-//     price: price,
-//     mode: mode,
-//   });
-//   await newOrder.save();
-//   user.orders.push(newOrder._id);
-//   await user.save();
-//   res.send("Order Saved!");
-// });
-
-// app.post("/newOrder", async (req, res) => {
-//   try {
-//     let userId = req.user._id;
-//     let user = await User.findById(userId).populate("orders");
-
-//     let { name, qty, price, mode } = req.body;
-//     qty = Number(qty);
-
-//     // 🟢 BUY LOGIC
-//     if (mode === "BUY") {
-//       let newOrder = new Order({ name, qty, price, mode: "BUY" });
-//       await newOrder.save();
-
-//       user.orders.push(newOrder._id);
-//       await user.save();
-
-//       return res.json({ success: true, message: "Stock Bought!" });
-//     }
-
-//     //  SELL LOGIC
-//     if (mode === "SELL") {
-//       // find existing order of this stock
-//       let existingOrder = user.orders.find((order) => order.name === name);
-
-//       if (!existingOrder) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "You don't own this stock. Buy first!",
-//         });
-//       }
-
-//       // check quantity
-//       if (existingOrder.qty < qty) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "Not enough quantity to sell!",
-//         });
-//       }
-
-//       // deduct quantity
-//       existingOrder.qty -= qty;
-
-//       if (existingOrder.qty === 0) {
-//         // remove order completely
-//         await Order.findByIdAndDelete(existingOrder._id);
-//         user.orders = user.orders.filter(
-//           (id) => id.toString() !== existingOrder._id.toString(),
-//         );
-//       } else {
-//         await existingOrder.save();
-//       }
-
-//       await user.save();
-
-//       return res.json({ success: true, message: "Stock Sold!" });
-//     }
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ success: false, message: "Server Error" });
-//   }
-// });
-// app.post("/newOrder", async (req, res) => {
-//   try {
-//     const userId = req.user._id;
-//     const user = await User.findById(userId).populate("orders");
-
-//     let { name, qty, price, mode } = req.body;
-//     qty = Number(qty);
-
-//     // 🟢 BUY LOGIC
-//     if (mode === "BUY") {
-//       // check if user already owns this stock
-//       let existingOrder = user.orders.find((order) => order.name === name);
-
-//       if (existingOrder) {
-//         // increase qty instead of creating new order
-//         existingOrder.qty += qty;
-//         existingOrder.price = price; // optional: update latest price
-//         await existingOrder.save();
-
-//         return res.json({
-//           status: "BUY_UPDATED",
-//           order: existingOrder,
-//           message: "Stock quantity updated",
-//         });
-//       }
-
-//       // create new order if not exists
-//       const newOrder = new Order({ name, qty, price, mode: "BUY" });
-//       await newOrder.save();
-
-//       user.orders.push(newOrder._id);
-//       await user.save();
-
-//       return res.json({
-//         status: "BUY_CREATED",
-//         order: newOrder,
-//         message: "Stock Bought!",
-//       });
-//     }
-
-//     // 🔴 SELL LOGIC
-//     if (mode === "SELL") {
-//       const existingOrder = user.orders.find((o) => o.name === name);
-
-//       if (!existingOrder) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "You don't own this stock. Buy first!",
-//         });
-//       }
-
-//       if (existingOrder.qty < qty) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "Not enough quantity to sell!",
-//         });
-//       }
-
-//       // deduct qty
-//       existingOrder.qty -= qty;
-
-//       // 🗑️ remove completely if qty = 0
-//       if (existingOrder.qty === 0) {
-//         await Order.deleteOne({ _id: existingOrder._id });
-
-//         await User.updateOne(
-//           { _id: userId },
-//           { $pull: { orders: existingOrder._id } },
-//         );
-
-//         return res.json({
-//           status: "REMOVED",
-//           message: "Stock fully sold",
-//         });
-//       }
-
-//       // 💾 save updated qty
-//       await existingOrder.save();
-
-//       return res.json({
-//         status: "SELL_UPDATED",
-//         order: existingOrder,
-//         message: "Stock quantity updated after sell",
-//       });
-//     }
-
-//     return res.status(400).json({ message: "Invalid mode" });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: "Server Error" });
-//   }
-// });
-
-app.get("/userOrders", async (req, res) => {
-  try {
+app.get(
+  "/userOrders",
+  wrapAsync(async (req, res, next) => {
     const userId = req.user._id;
 
     const user = await User.findById(userId).populate("orders");
 
     res.json(user.orders);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to fetch orders" });
-  }
-});
+  }),
+);
 
-app.post("/signup", async (req, res) => {
-  try {
+app.post(
+  "/signup",
+  wrapAsync(async (req, res, next) => {
     let { username, email, password } = req.body;
 
     let newUser = new User({ username, email });
@@ -337,21 +165,8 @@ app.post("/signup", async (req, res) => {
       // send response ONLY after login session is saved
       return res.json({ success: true, user: registeredUser });
     });
-  } catch (err) {
-    // 👇 user already exists
-    if (err.name === "UserExistsError") {
-      return res.status(400).json({
-        success: false,
-        message: "User already exists",
-      });
-    }
-
-    return res.status(500).json({
-      success: false,
-      message: "Something went wrong",
-    });
-  }
-});
+  }),
+);
 
 app.post(
   "/login",
@@ -363,11 +178,14 @@ app.post(
   },
 );
 
-app.get("/logout", async (req, res) => {
-  req.logOut(() => {
-    res.json({ success: true, user: req.user });
-  });
-});
+app.get(
+  "/logout",
+  wrapAsync(async (req, res, next) => {
+    req.logOut(() => {
+      res.json({ success: true, user: req.user });
+    });
+  }),
+);
 
 app.get("/currentUser", (req, res) => {
   if (req.isAuthenticated()) {
@@ -376,8 +194,13 @@ app.get("/currentUser", (req, res) => {
   res.status(401).json({ user: null });
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
+app.use((err, req, res, next) => {
+  let { status = 500, message = "Something went wrong" } = err;
+
+  res.status(status).json({
+    success: false,
+    message: message,
+  });
 });
 
 app.listen(8080, () => {

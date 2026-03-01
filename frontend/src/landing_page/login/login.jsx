@@ -28,6 +28,7 @@ export default function Login() {
         window.location.href = "http://localhost:5174/";
       }
     } catch (err) {
+      alert("Something went wrong");
       window.location.href = "http://localhost:5173/signup";
     }
   };
