@@ -9,6 +9,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const wrapAsync = require("./utils/wrapAsync");
+const { MongoStore } = require("connect-mongo");
 
 const Holding = require("./model/holding");
 const Position = require("./model/position");
@@ -29,8 +30,21 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
+const store = MongoStore.create({
+  mongoUrl: MONGO_URL,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", (err) => {
+  console.log("ERROR in MONGO SESSION STORE", err);
+});
+
 const sessionOptions = {
-  secret: "mysupersecret",
+  store,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
