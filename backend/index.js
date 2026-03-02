@@ -44,6 +44,20 @@ store.on("error", (err) => {
 
 app.set("trust proxy", 1);
 
+const sessionOptions = {
+  store,
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  },
+};
+
 app.use(
   cors({
     origin: [
@@ -51,21 +65,6 @@ app.use(
       "https://trade-flow-f547.vercel.app",
     ],
     credentials: true,
-  }),
-);
-
-app.use(
-  session({
-    store,
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      secure: true,
-      sameSite: "none",
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    },
   }),
 );
 
