@@ -21,8 +21,8 @@ export default function Menu() {
 
   const handleLogoutClick = async () => {
     try {
-      await axios.get("http://localhost:8080/logout");
-      window.location.href = "http://localhost:5173/";
+      await axios.get("https://tradeflow-b7hr.onrender.com/logout");
+      window.location.href = "https://trade-flow-eta.vercel.app";
     } catch (err) {
       console.error(err);
     }
@@ -30,7 +30,7 @@ export default function Menu() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/currentUser", {
+      .get("https://tradeflow-b7hr.onrender.com/currentUser", {
         withCredentials: true,
       })
       .then((res) => {
