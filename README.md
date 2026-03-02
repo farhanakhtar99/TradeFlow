@@ -10,9 +10,9 @@ The project is built with a modern architecture where **frontend, backend, and d
 
 | Service               | Link                                                                                       |
 | --------------------- | ------------------------------------------------------------------------------------------ |
-| **Main Frontend**     | [https://invest-mate-z8ay.vercel.app/](https://invest-mate-z8ay.vercel.app/)               |
-| **User Dashboard**    | [https://investmatedashboard.onrender.com/](https://investmatedashboard.onrender.com/)     |
-| **Backend API**       | [https://investmate-2f43.onrender.com](https://investmate-2f43.onrender.com)               |
+| **Main Frontend**     | [https://trade-flow-eta.vercel.app/](https://trade-flow-eta.vercel.app/)                   |
+| **User Dashboard**    | [https://trade-flow-f547.vercel.app/](https://trade-flow-f547.vercel.app/)                 |
+| **Backend API**       | [https://tradeflow-b7hr.onrender.com](https://tradeflow-b7hr.onrender.com)                 |
 | **GitHub Repository** | [https://github.com/farhanakhtar99/TradeFlow](https://github.com/farhanakhtar99/TradeFlow) |
 
 
