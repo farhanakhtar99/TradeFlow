@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./signup.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -94,7 +95,7 @@ export default function Signup() {
             </form>
 
             <p className="signin-text">
-              Already have an account? <a href="/login">Click here</a>
+              Already have an account? <Link to="/login">Click here</Link>
             </p>
           </div>
         </div>

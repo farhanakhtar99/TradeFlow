@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -79,8 +80,7 @@ export default function Login() {
             </form>
 
             <p className="signin-text">
-              Don't have an account?{" "}
-              <a href="/https://trade-flow-eta.vercel.app/signup">Click here</a>
+              Don't have an account? <Link to="/signup">Click here</Link>
             </p>
           </div>
         </div>
