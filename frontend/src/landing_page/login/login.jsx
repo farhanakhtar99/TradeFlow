@@ -79,7 +79,8 @@ export default function Login() {
             </form>
 
             <p className="signin-text">
-              Don't have an account? <a href="/signup">Click here</a>
+              Don't have an account?{" "}
+              <a href="/https://trade-flow-eta.vercel.app/signup">Click here</a>
             </p>
           </div>
         </div>

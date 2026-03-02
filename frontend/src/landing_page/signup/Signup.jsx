@@ -94,7 +94,8 @@ export default function Signup() {
             </form>
 
             <p className="signin-text">
-              Already have an account? <a href="/login">Click here</a>
+              Already have an account?{" "}
+              <a href="https://trade-flow-eta.vercel.app/login">Click here</a>
             </p>
           </div>
         </div>
