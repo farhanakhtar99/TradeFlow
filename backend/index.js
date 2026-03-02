@@ -44,24 +44,6 @@ store.on("error", (err) => {
 
 app.set("trust proxy", 1);
 
-const sessionOptions = {
-  store,
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly: true,
-    secure: true,
-    sameSite: "none",
-  },
-};
-
-app.use(express.json());
-app.use(bodyParser.json());
-// app.use(cors());
-app.use(session(sessionOptions));
 app.use(
   cors({
     origin: [
@@ -71,6 +53,26 @@ app.use(
     credentials: true,
   }),
 );
+
+app.use(
+  session({
+    store,
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    },
+  }),
+);
+
+app.use(express.json());
+app.use(bodyParser.json());
+// app.use(cors());
+app.use(session(sessionOptions));
 
 app.use(passport.initialize());
 app.use(passport.session());
