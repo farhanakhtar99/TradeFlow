@@ -10,7 +10,7 @@ export default function OpenAccount() {
           F&O trades.
         </p>
         <Link
-          className="p-2 btn btn-primary fs-5 mb-5"
+          className="p-2 btn btn-primary fs-5 mb-3"
           style={{ width: "20%", margin: "auto" }}
           to="/signup"
         >

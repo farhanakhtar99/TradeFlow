@@ -5,9 +5,10 @@ export default function Hero() {
     <div className="container p-5 mb-5">
       <div className="row text-center">
         <img
-          src="media/images/homeHero.png"
+          src="media/images/landing.svg"
           alt="Hero Image"
-          className="mb-5"
+          className="mb-5 mt-4"
+          style={{ width: "85%", marginLeft: "75px" }}
         />
         <h1 className="mt-5 mb-3">Invest in everything</h1>
         <p className="mb-4">
