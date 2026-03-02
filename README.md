@@ -130,7 +130,7 @@ cd tradeflow
 ```bash
 cd backend
 npm install
-npm run dev
+nodemon index.js
 ```
 
 ### 3️⃣ Setup Frontend
