@@ -40,6 +40,44 @@ Each service is deployed separately for better scalability and independent updat
 
 ---
 
+## ✨ Key Features
+
+### 🔐 Authentication
+
+* Secure login & signup using **Passport.js**
+* Session-based authentication with persistent login
+* Protected routes with authentication middleware
+* Secure password hashing & validation
+
+### 📊 User Dashboard
+
+* Live holdings & open positions overview
+* Portfolio value and performance insights
+* Interactive charts and visual analytics
+* Fully responsive and intuitive UI
+
+### 💱 Order Management
+
+* Seamless Buy & Sell order execution
+* Real-time balance and quantity validation
+* Transaction history tracking
+* Instant UI updates with error handling
+
+### ⚙️ Backend (API Layer)
+
+* Structured MVC architecture with **Node.js & Express**
+* **MongoDB Atlas** database with Mongoose ODM
+* Session storage using Connect-Mongo
+* Robust error handling and API validation
+
+### 🎨 UI & Experience
+
+* Modern interface built with **Material UI + Bootstrap**
+* Smooth navigation and component-based design
+* Optimized for performance and scalability
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Frontend
