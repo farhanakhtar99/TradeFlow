@@ -15,7 +15,7 @@ export default function Login() {
     event.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:8080/login",
+        "https://tradeflow-b7hr.onrender.com/login",
         {
           username: formData.username,
           password: formData.password,
@@ -25,11 +25,11 @@ export default function Login() {
 
       // if login success → redirect
       if (res.data.success) {
-        window.location.href = "http://localhost:5174/";
+        window.location.href = "https://trade-flow-f547.vercel.app";
       }
     } catch (err) {
       alert("Something went wrong");
-      window.location.href = "http://localhost:5173/signup";
+      window.location.href = "https://trade-flow-eta.vercel.app/signup";
     }
   };
 
