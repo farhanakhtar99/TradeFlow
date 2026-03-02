@@ -8,9 +8,12 @@ export default function Orders() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/userOrders", {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://tradeflow-b7hr.onrender.com/userOrders",
+          {
+            withCredentials: true,
+          },
+        );
 
         setAllOrders(res.data);
       } catch (err) {

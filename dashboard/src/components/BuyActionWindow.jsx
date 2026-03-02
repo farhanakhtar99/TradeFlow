@@ -13,7 +13,7 @@ const BuyActionWindow = ({ uid, price }) => {
   const totalPrice = stockQuantity * price;
 
   const handleBuyClick = () => {
-    axios.post("http://localhost:8080/buyOrder", {
+    axios.post("https://tradeflow-b7hr.onrender.com/buyOrder", {
       name: uid,
       qty: stockQuantity,
       price: totalPrice,

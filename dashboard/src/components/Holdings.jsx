@@ -6,7 +6,7 @@ export default function Holdings() {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/holdings").then((res) => {
+    axios.get("https://tradeflow-b7hr.onrender.com/holdings").then((res) => {
       setAllHoldings(res.data);
     });
   }, []);

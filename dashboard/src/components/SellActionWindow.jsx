@@ -12,7 +12,7 @@ const SellActionWindow = ({ uid, price }) => {
   const totalPrice = stockQuantity * price;
 
   const handleSellClick = () => {
-    axios.post("http://localhost:8080/sellOrder", {
+    axios.post("https://tradeflow-b7hr.onrender.com/sellOrder", {
       name: uid,
       qty: stockQuantity,
       price: totalPrice,
