@@ -4,6 +4,8 @@ TradeFlow is a full-stack stock trading web application that allows users to buy
 
 The platform is built with a modern micro-app architecture, where the frontend, backend, and admin dashboard are deployed independently, ensuring scalability and easier maintenance.
 
+🌐 Live Deployments
+
 | Service               | Link                                                                                       |
 | --------------------- | ------------------------------------------------------------------------------------------ |
 | **Main Frontend**     | [https://invest-mate-z8ay.vercel.app/](https://invest-mate-z8ay.vercel.app/)               |
