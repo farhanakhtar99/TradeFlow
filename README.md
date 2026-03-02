@@ -1,8 +1,10 @@
-TradeFlow — Stock Trading Platform
+# 📈 TradeFlow — Stock Trading Platform
 
-TradeFlow is a full-stack stock trading web application that allows users to buy, sell, and track stocks through an intuitive and responsive interface.
+TradeFlow is an **end-to-end MERN full-stack stock trading platform** that allows users to simulate real trading activities such as buying and selling stocks, tracking portfolios, and monitoring market data through an interactive dashboard.
 
-The platform is built with a modern micro-app architecture, where the frontend, backend, and admin dashboard are deployed independently, ensuring scalability and easier maintenance.
+The project is built with a modern architecture where **frontend, backend, and dashboard are deployed independently**, enabling scalability and easier maintenance.
+
+---
 
 🌐 Live Deployments
 
@@ -14,104 +16,158 @@ The platform is built with a modern micro-app architecture, where the frontend, 
 | **GitHub Repository** | [https://github.com/farhanakhtar99/TradeFlow](https://github.com/farhanakhtar99/TradeFlow) |
 
 
-🚀 Features
+## 🚀 Features
 
-🔐 User authentication & secure session handling
+* 🔐 User authentication & session management
+* 📊 Interactive trading dashboard
+* 💼 Portfolio management
+* 💰 Buy and sell stocks simulation
+* 📈 Real-time style market data representation
+* 🧾 Transaction history tracking
+* 🎨 Responsive UI with Material UI & Bootstrap
 
-📈 Real-time stock buying and selling simulation
+---
 
-💼 Portfolio tracking with profit/loss insights
+## 🏗️ Architecture
 
-📊 Interactive charts and market overview
+TradeFlow follows a **distributed deployment architecture**:
 
-🧾 Transaction history management
+* **Frontend** → User-facing trading interface
+* **Backend API** → Handles business logic & database operations
+* **Dashboard** → Analytics and portfolio insights
 
-🛠️ Admin dashboard for monitoring and management
+Each service is deployed separately for better scalability and independent updates.
 
-🌐 Fully responsive UI
+---
 
-🏗️ Project Architecture
+## 🛠️ Tech Stack
 
-The project is divided into three independently deployed applications:
+### Frontend
 
-Frontend (Client App)
+* React (Vite)
+* Material UI
+* Bootstrap
+* Axios
 
-User interface for trading, portfolio, and market data
+### Backend
 
-Built with modern UI framework and responsive design
+* Node.js
+* Express.js
+* MongoDB (Atlas)
+* Mongoose
+* Express Session & Connect-Mongo
 
-Backend (API Server)
+### Dashboard
 
-Handles authentication, business logic, and transactions
+* React
+* Charting libraries
+* Material UI
 
-Manages database operations and session storage
+---
 
-Dashboard (Admin Panel)
+## 📂 Project Structure
 
-Admin tools for managing users, trades, and analytics
-
-🧑‍💻 Tech Stack
-Frontend
-
-React / Vite
-
-Axios
-
-Bootstrap / CSS
-
-Backend
-
-Node.js
-
-Express.js
-
-MongoDB (Atlas)
-
-Session & authentication middleware
-
-Dashboard
-
-React
-
-Charting libraries
-
-📂 Repository Structure
+```
 TradeFlow/
 │
-├── frontend/     # Client application
-├── backend/      # API & server logic
-└── dashboard/    # Admin panel
-⚙️ Installation & Setup (Local)
-1️⃣ Clone the repository
-git clone https://github.com/your-username/TradeFlow.git
-cd TradeFlow
-2️⃣ Setup Backend
+├── frontend/      # User trading interface
+├── backend/       # REST API & server
+├── dashboard/     # Analytics dashboard
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/your-username/tradeflow.git
+cd tradeflow
+```
+
+### 2️⃣ Setup Backend
+
+```bash
 cd backend
 npm install
 npm run dev
-3️⃣ Setup Frontend
+```
+
+### 3️⃣ Setup Frontend
+
+```bash
 cd frontend
 npm install
 npm run dev
-4️⃣ Setup Dashboard
+```
+
+### 4️⃣ Setup Dashboard
+
+```bash
 cd dashboard
 npm install
 npm run dev
-🔮 Future Improvements
+```
 
-Live market data integration
+---
 
-Payment gateway integration
+## 🔑 Environment Variables
 
-Advanced analytics & insights
+Create a `.env` file in the backend folder:
 
-Mobile app version
+```
+PORT=8080
+MONGO_URL=your_mongodb_connection_string
+SECRET=your_session_secret
+CLIENT_URL=your_frontend_url
+```
 
-🤝 Contributing
+---
 
-Contributions, issues, and feature requests are welcome!
-Feel free to fork the repo and submit a pull request.
+## 📸 Screens
 
-📜 License
+* Trading Interface
+* Portfolio Overview
+* Market Watchlist
+* Analytics Dashboard
 
-This project is for educational and demonstration purposes.
+*(Add screenshots here)*
+
+---
+
+## 🧪 Future Improvements
+
+* Real market API integration
+* Advanced chart indicators
+* Order types (limit, stop-loss)
+* Notifications system
+* Mobile responsiveness improvements
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a new branch
+3. Commit your changes
+4. Open a pull request
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 👨‍💻 Author
+
+**Farhan Akhtar**
+B.Tech IT Student
+
+If you like this project, consider giving it a ⭐ on GitHub!
+
