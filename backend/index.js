@@ -58,12 +58,12 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.get("/allHoldings", async (req, res) => {
+app.get("/holdings", async (req, res) => {
   const allHoldings = await Holding.find({});
   res.json(allHoldings);
 });
 
-app.get("/allPositions", async (req, res) => {
+app.get("/positions", async (req, res) => {
   const allPositions = await Position.find({});
   res.json(allPositions);
 });
