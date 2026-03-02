@@ -60,7 +60,10 @@ app.use(bodyParser.json());
 app.use(session(sessionOptions));
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: [
+      "https://trade-flow-eta.vercel.app",
+      "https://trade-flow-f547.vercel.app",
+    ],
     credentials: true,
   }),
 );
