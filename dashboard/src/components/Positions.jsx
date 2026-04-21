@@ -5,7 +5,7 @@ export default function Positions() {
   const [allPositions, setAllPositions] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/positions").then((res) => {
+    axios.get("https://tradeflow-dbol.onrender.com/positions").then((res) => {
       console.log(res.data);
       setAllPositions(res.data);
     });

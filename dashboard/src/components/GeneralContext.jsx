@@ -26,9 +26,12 @@ export const GeneralContextProvider = (props) => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/userOrders", {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://tradeflow-dbol.onrender.com/userOrders",
+        {
+          withCredentials: true,
+        },
+      );
       setOrders(res.data);
     } catch (err) {
       console.log(err);

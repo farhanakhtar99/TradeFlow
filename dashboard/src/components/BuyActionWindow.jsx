@@ -15,7 +15,7 @@ const BuyActionWindow = ({ uid, price }) => {
 
   const handleBuyClick = async () => {
     await axios.post(
-      "http://localhost:8080/buyOrder",
+      "https://tradeflow-dbol.onrender.com/buyOrder",
       {
         name: uid,
         qty: stockQuantity,

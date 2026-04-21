@@ -7,7 +7,7 @@ export default function Summary() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/currentUser", {
+      .get("https://tradeflow-dbol.onrender.com/currentUser", {
         withCredentials: true,
       })
       .then((res) => {

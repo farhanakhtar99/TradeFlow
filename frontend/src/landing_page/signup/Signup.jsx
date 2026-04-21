@@ -18,7 +18,7 @@ export default function Signup() {
     event.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:8080/signup",
+        "https://tradeflow-dbol.onrender.com/signup",
         {
           username: formData.username,
           email: formData.email,
@@ -29,11 +29,11 @@ export default function Signup() {
 
       // if login success → redirect
       if (res.data.success) {
-        window.location.href = "http://localhost:5174/";
+        window.location.href = "https://tradeflow-1-z4lm.onrender.com";
       }
     } catch (err) {
       alert(err.response?.data?.message);
-      window.location.href = "http://localhost:5174//login";
+      window.location.href = "https://trade-flow-ruby.vercel.app/login";
     }
   };
 

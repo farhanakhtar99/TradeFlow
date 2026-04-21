@@ -20,17 +20,13 @@ export default function Menu() {
   const activeMenuClass = "menu selected";
 
   const handleLogoutClick = async () => {
-    try {
-      await axios.get("http://localhost:8080/logout");
-      window.location.href = "http://localhost:5173/";
-    } catch (err) {
-      console.error(err);
-    }
+    await axios.get("https://tradeflow-dbol.onrender.com/logout");
+    window.location.href = "https://trade-flow-ruby.vercel.app/";
   };
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/currentUser", {
+      .get("https://tradeflow-dbol.onrender.com/currentUser", {
         withCredentials: true,
       })
       .then((res) => {

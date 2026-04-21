@@ -15,7 +15,7 @@ const SellActionWindow = ({ uid, price }) => {
 
   const handleSellClick = async () => {
     await axios.post(
-      "http://localhost:8080/sellOrder",
+      "https://tradeflow-dbol.onrender.com/sellOrder",
       {
         name: uid,
         qty: stockQuantity,
