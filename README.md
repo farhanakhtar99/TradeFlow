@@ -6,14 +6,7 @@ The project is built with a modern architecture where **frontend, backend, and d
 
 ---
 
-🌐 Live Deployments
-
-| Service               | Link                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------ |
-| **Main Frontend**     | [https://trade-flow-eta.vercel.app/](https://trade-flow-eta.vercel.app/)                   |
-| **User Dashboard**    | [https://trade-flow-f547.vercel.app/](https://trade-flow-f547.vercel.app/)                 |
-| **Backend API**       | [https://tradeflow-b7hr.onrender.com](https://tradeflow-b7hr.onrender.com)                 |
-| **GitHub Repository** | [https://github.com/farhanakhtar99/TradeFlow](https://github.com/farhanakhtar99/TradeFlow) |
+🌐 Live Deployments: https://trade-flow-ruby.vercel.app
 
 ## 🚀 Features
 
