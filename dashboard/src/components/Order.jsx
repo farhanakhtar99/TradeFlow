@@ -1,0 +1,46 @@
+import { useContext } from "react";
+import GeneralContext from "./GeneralContext"; // adjust path if needed
+import { watchlist } from "../data/data";
+
+export default function Orders() {
+  const { orders } = useContext(GeneralContext); // ✅ use shared state
+  console.log("orders from context:", orders);
+
+  return (
+    <>
+      <h3 className="title">Orders ({orders.length})</h3>
+
+      <div className="order-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Qty.</th>
+              <th>Avg Buy</th>
+              <th>LTP</th>
+              <th>Cur. val</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {orders.map((stock, index) => {
+              const ltp =
+                watchlist?.find((x) => x.name === stock.name)?.price || 0;
+              const curValue = ltp * stock.qty;
+
+              return (
+                <tr key={index}>
+                  <td>{stock.name}</td>
+                  <td>{stock.qty}</td>
+                  <td>{stock.price.toFixed(2)}</td>
+                  <td>{ltp.toFixed(2)}</td>
+                  <td>{curValue.toFixed(2)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+}
