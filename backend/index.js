@@ -30,45 +30,31 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
-// const store = MongoStore.create({
-//   mongoUrl: MONGO_URL,
-//   crypto: {
-//     secret: process.env.SECRET,
-//   },
-//   touchAfter: 24 * 3600,
-// });
+const store = MongoStore.create({
+  mongoUrl: MONGO_URL,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600,
+});
 
-// store.on("error", (err) => {
-//   console.log("ERROR In MONGO SESSION STORE", err);
-// });
+store.on("error", (err) => {
+  console.log("ERROR In MONGO SESSION STORE", err);
+});
 
 app.set("trust proxy", 1);
 
-// store,
-
-// const sessionOptions = {
-//   secret: process.env.SECRET,
-//   resave: false,
-//   saveUninitialized: false,
-//   cookie: {
-//     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-//     maxAge: 7 * 24 * 60 * 60 * 1000,
-//     httpOnly: true,
-//     secure: true,
-//     sameSite: "none",
-//   },
-// };
-
 const sessionOptions = {
+  store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    secure: false, // 🔥 IMPORTANT (for localhost)
-    sameSite: "lax", // 🔥 IMPORTANT
+    secure: true,
+    sameSite: "none",
   },
 };
 
